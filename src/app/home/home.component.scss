@@ -1,0 +1,11 @@
+.pad-icon a div{
+    margin: .25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pad-icon a div:first-child{
+    @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300;
+}

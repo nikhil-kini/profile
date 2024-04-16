@@ -7,7 +7,9 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  isHamburgerMenuOpen = false;
   isDarkEnable = true;
+  isContactOpen = false;
   presentTheme$ = new BehaviorSubject<string>('theme-dark');
 
   ngOnInit() {
@@ -23,5 +25,21 @@ export class AppComponent {
       : this.presentTheme$.next('theme-light');
     localStorage.setItem('theme', this.presentTheme$.value);
     this.isDarkEnable = !this.isDarkEnable;
+  }
+
+  showHamburgerMenu() {
+    this.isHamburgerMenuOpen = !this.isHamburgerMenuOpen;
+  }
+
+  toggleContactModal() {
+    this.isContactOpen = !this.isContactOpen;
+    if (this.isHamburgerMenuOpen) {
+      this.isHamburgerMenuOpen = !this.isHamburgerMenuOpen;
+    }
+    if (this.isContactOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
   }
 }

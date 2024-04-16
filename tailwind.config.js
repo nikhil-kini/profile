@@ -14,7 +14,7 @@ module.exports = {
         'header-color': '#f4f4f5',
         'header-text': '#71717a',
         'header-text-hover': '#27272a',
-        'card-color': '#fafafa',
+        'card-color': '#e4e4e7',
     
         // Dark theme colors
         'dark-primary': '#ff500b',

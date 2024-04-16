@@ -3,22 +3,32 @@
   class="bg-theme dark:bg-dark-theme bg-cover"
 >
   <header
-    class="bg-header-color text-header-text dark:bg-dark-header-color dark:text-dark-header-text bg-opacity-20 sticky top-0 z-10"
+    class="bg-header-color text-header-text dark:bg-dark-header-color dark:text-dark-header-text bg-opacity-90 dark:bg-opacity-90 sticky top-0 z-10"
   >
     <section
       class="text-lg font-light max-w-6xl mx-auto p-4 flex justify-between items-center"
     >
       <h1
-        class="hover:text-header-text-hover dark:hover:text-dark-header-text-hover"
+        class="hover:text-header-text-hover dark:hover:text-dark-header-text-hover focus:text-header-text-hover dark:focus:text-dark-header-text-hover"
       >
         <a href="#">Nikhil Kini</a>
       </h1>
       <div>
         <button
-          id="mobile-open-button"
+          *ngIf="!isHamburgerMenuOpen"
+          id="hamberger-menu"
           class="sm:hidden focus:outline-none hover:text-header-text-hover dark:hover:text-dark-header-text-hover"
+          (click)="showHamburgerMenu()"
         >
           &#9776;
+        </button>
+        <button
+          *ngIf="isHamburgerMenuOpen"
+          id="hamberger-menu"
+          class="sm:hidden focus:outline-none text-xl hover:text-header-text-hover dark:hover:text-dark-header-text-hover"
+          (click)="showHamburgerMenu()"
+        >
+          &#9932;
         </button>
         <nav class="hidden sm:block space-x-8" aria-label="main">
           <a
@@ -26,11 +36,12 @@
             class="h hover:text-header-text-hover dark:hover:text-dark-header-text-hover"
             >Résumé</a
           >
-          <a
-            href="#"
+          <button
+            (click)="toggleContactModal()"
             class="hover:text-header-text-hover dark:hover:text-dark-header-text-hover"
-            >Contact</a
           >
+            Contact
+          </button>
           <button
             class="theme-toggle hover:text-header-text-hover dark:hover:text-dark-header-text-hover align-middle"
             type="button"
@@ -56,8 +67,64 @@
         </nav>
       </div>
     </section>
+    <section
+      *ngIf="isHamburgerMenuOpen"
+      class="text-lg font-light max-w-6xl mx-auto px-4 sm:hidden"
+    >
+      <nav class="flex flex-col items-end" aria-label="main">
+        <a
+          href="#"
+          class="h hover:text-header-text-hover py-3 dark:hover:text-dark-header-text-hover"
+          >Résumé</a
+        >
+        <button
+          (click)="toggleContactModal()"
+          class="hover:text-header-text-hover py-3 dark:hover:text-dark-header-text-hover"
+        >
+          Contact
+        </button>
+        <button
+          class="theme-toggle hover:text-header-text-hover py-3 dark:hover:text-dark-header-text-hover align-middle"
+          title="Toggle theme"
+          aria-label="Toggle theme"
+          (click)="changeTheme()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            width="1em"
+            height="1em"
+            class="theme-toggle__dark-inner"
+            fill="currentColor"
+            viewBox="0 0 32 32"
+          >
+            <path d="M16 9c3.9 0 7 3.1 7 7s-3.1 7-7 7" />
+            <path
+              d="M16 .5C7.4.5.5 7.4.5 16S7.4 31.5 16 31.5 31.5 24.6 31.5 16 24.6.5 16 .5zm0 28.1V23c-3.9 0-7-3.1-7-7s3.1-7 7-7V3.4C23 3.4 28.6 9 28.6 16S23 28.6 16 28.6z"
+            />
+          </svg>
+        </button>
+      </nav>
+    </section>
+    <section
+      *ngIf="isContactOpen"
+      class="modal-open w-[100vw] h-[100vh] bg-theme dark:bg-dark-theme bg-opacity-[.98] dark:bg-opacity-[.98] text-secondary dark:text-dark-secondary z-10"
+    >
+      <div class="max-w-6xl mx-auto flex flex-col justify-between h-[80%]">
+        <div class="w-[100%] flex justify-end p-4">
+          <button
+            id="modal-open"
+            class="focus:outline-none text-3xl text-header-text dark:text-dark-header-text hover:text-header-text-hover dark:hover:text-dark-header-text-hover"
+            (click)="toggleContactModal()"
+          >
+            &#9932;
+          </button>
+        </div>
+        <app-contact class="w-[100%]"></app-contact>
+      </div>
+    </section>
   </header>
-  <main>
+  <main class="">
     <section
       class="max-w-6xl mx-auto p-4 text-secondary dark:text-dark-secondary"
     >
