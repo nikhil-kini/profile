@@ -24,9 +24,7 @@ export class ResumeComponent {
 
     doc.addFileToVFS('Poppins-Regular.ttf', PoppinsEncoded);
     doc.addFont('Poppins-Regular.ttf', 'Poppins', 'normal');
-    doc.setFont('Open Sans', 'normal');
-    console.log(doc.getFontList());
-    console.log(doc.getFont());
+    doc.setFont('Poppins', 'normal');
 
     doc.html(pages, {
       x: margin,
