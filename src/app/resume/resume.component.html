@@ -28,9 +28,9 @@
         <h2 class="uppercase mb-3">Experience</h2>
         <div class="my-3">
           <h3>Pragmat Tech</h3>
-          <h4>
+          <h4 class="flex justify-between">
             <i>Full Stack Developer</i>
-            &#9702; Mar '23 - Present
+            Mar '23 - Present
           </h4>
           <p class="my-1">
             Contributing by helping new businesses establish their digital
@@ -40,7 +40,9 @@
         </div>
         <div class="my-3">
           <h3>Infosys Ltd</h3>
-          <h4><i>Test Engineer</i> &#9702; Nov '21 - Feb '23</h4>
+          <h4 class="flex justify-between">
+            <i>Test Engineer</i> Nov '21 - Feb '23
+          </h4>
           <p class="my-1">
             Worked with a banking client, to establish their
             <b>Digital Commerce</b> application under newly merged brand name of
@@ -50,7 +52,9 @@
         </div>
         <div class="my-3">
           <h3>Infosys Ltd</h3>
-          <h4><i>System Engineer Trainee</i> &#9702; May '21 - Oct</h4>
+          <h4 class="flex justify-between">
+            <i>System Engineer Trainee</i> May '21 - Oct
+          </h4>
           <p class="my-1">
             Joined has a Java Developer, contributed in building Restful API for
             a travel website.
@@ -58,7 +62,7 @@
         </div>
         <div class="my-3">
           <h3>Brakes India Pvt Ltd</h3>
-          <h4><i>Intern</i> &#9702; Jul '19 - Aug</h4>
+          <h4 class="flex justify-between"><i>Intern</i> Jul '19 - Aug</h4>
           <p class="my-1">
             Interned in Product Development and Quality Assurance departments of
             the company. Worked on re-engineering rubber and polymer mould
@@ -146,5 +150,11 @@
     </div>
   </div>
 </div>
-
-<button (click)="openPDF()" class="w-20 h-12"></button>
+<div class="md:mx-auto md:w-[780px] my-14">
+  <button
+    (click)="openPDF()"
+    class="h-12 text-blue-300 rounded-md border-2 border-blue-300 p-3"
+  >
+    Download PDF
+  </button>
+</div>

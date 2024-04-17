@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import jsPDF from 'jspdf';
+import { PoppinsEncoded } from 'src/assets/Poppins-Regular-Encoded';
 
 @Component({
   selector: 'app-resume',
@@ -21,6 +22,9 @@ export class ResumeComponent {
       floatPrecision: 16, // or "smart", default is 16
     });
 
+    doc.addFileToVFS('Poppins-Regular.ttf', PoppinsEncoded);
+    doc.addFont('Poppins-Regular.ttf', 'Poppins', 'normal');
+    doc.setFont('Open Sans', 'normal');
     console.log(doc.getFontList());
     console.log(doc.getFont());
 
