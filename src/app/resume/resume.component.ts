@@ -8,19 +8,31 @@ import jsPDF from 'jspdf';
 })
 export class ResumeComponent {
   public openPDF(): void {
-    const pages = document.querySelector('.htmlData') as HTMLElement;
-    const doc = new jsPDF({
+    let margin = 36;
+
+    let pages = document.querySelector('.htmlData') as HTMLElement;
+    let srcwidth = pages.scrollWidth;
+    let scale = (595.28 - margin * 2) / srcwidth;
+    let doc = new jsPDF({
       orientation: 'p',
-      unit: 'px',
-      format: [960, 1400],
+      unit: 'pt',
+      format: 'a4',
       putOnlyUsedFonts: true,
       floatPrecision: 16, // or "smart", default is 16
     });
 
+    console.log(doc.getFontList());
+    console.log(doc.getFont());
+
     doc.html(pages, {
+      x: margin,
+      y: 0,
+      html2canvas: {
+        scale: scale, // default is window.devicePixelRatio,
+      },
       callback: (doc: jsPDF) => {
         // doc.deletePage(doc.getNumberOfPages());
-        doc.save('pdf-export');
+        doc.save('Nikhil Kini - Résumé');
       },
     });
   }
