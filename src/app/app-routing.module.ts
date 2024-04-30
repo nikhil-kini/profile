@@ -7,10 +7,18 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    title: 'Profile - Nikhil Kini',
+    data: {
+      desc: 'Profile Information Nikhil Kini',
+    },
   },
   {
     path: 'resume',
     component: ResumeComponent,
+    title: 'Résumé - Nikhil Kini',
+    data: {
+      desc: 'Résumé Information Nikhil Kini',
+    },
   },
   {
     path: '**',
