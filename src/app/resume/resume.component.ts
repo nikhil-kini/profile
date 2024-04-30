@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, InjectionToken, inject } from '@angular/core';
 import jsPDF from 'jspdf';
 import { PoppinsEncoded } from 'src/assets/Poppins-Regular-Encoded';
 
@@ -8,6 +8,7 @@ import { PoppinsEncoded } from 'src/assets/Poppins-Regular-Encoded';
   styleUrls: ['./resume.component.scss'],
 })
 export class ResumeComponent {
+  constructor() {}
   public openPDF(): void {
     let margin = 36;
 
@@ -33,7 +34,6 @@ export class ResumeComponent {
         scale: scale, // default is window.devicePixelRatio,
       },
       callback: (doc: jsPDF) => {
-        // doc.deletePage(doc.getNumberOfPages());
         doc.save('Nikhil Kini - Résumé');
       },
     });
