@@ -9,3 +9,8 @@
 .pad-icon a div:first-child{
     @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300;
 }
+
+.section-heading{
+    @apply text-4xl flex flex-row justify-center my-14;
+}
+

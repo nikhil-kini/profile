@@ -1,10 +1,11 @@
 <div class="htmlData md:mx-auto md:w-[780px]">
   <div class="mx-3">
-    <div class="flex flex-col justify-center h-60 md:h-72 items-start title">
+    <div
+      @titleAnim
+      class="flex flex-col justify-center h-60 md:h-72 items-start title"
+    >
       <h1>Nikhil Kini</h1>
-      <h2 class="text-left subheader">
-        Full Stack Developer | Java | Angular | Mechanical Engineer
-      </h2>
+      <h2 class="text-left subheader">Full Stack Developer | Java | Angular</h2>
       <div
         class="text-sm md:hidden pt-2 text-blue-300 hover:underline"
         href="nikhil-kini.com"
@@ -23,54 +24,25 @@
 
     <div class="grid grid-cols-3 gap-1 md:gap-20 lg:gap-28">
       <div
+        @upAnim
         class="flex flex-col justify-start text-justify col-span-3 md:col-span-2"
       >
         <h2 class="uppercase mb-3">Experience</h2>
-        <div class="my-3">
-          <h3>Pragmat Tech</h3>
-          <h4 class="flex justify-between">
-            <i>Full Stack Developer</i>
-            Mar '23 - Present
-          </h4>
-          <p class="my-1">
-            Contributing by helping new businesses establish their digital
-            presence, and aiding businesses with digital foot-print to improve
-            their customer experience online.
-          </p>
-        </div>
-        <div class="my-3">
-          <h3>Infosys Ltd</h3>
-          <h4 class="flex justify-between">
-            <i>Test Engineer</i> Nov '21 - Feb '23
-          </h4>
-          <p class="my-1">
-            Worked with Sun Trust bank, to establish their
-            <b>Digital Commerce</b> application under newly merged brand name of
-            Truist. Contribued by creating automated test suit for the commerce
-            products.
-          </p>
-        </div>
-        <div class="my-3">
-          <h3>Infosys Ltd</h3>
-          <h4 class="flex justify-between">
-            <i>System Engineer Trainee</i> May '21 - Oct
-          </h4>
-          <p class="my-1">
-            Joined has a Java Developer, contributed in building Restful API for
-            a travel website.
-          </p>
-        </div>
-        <div class="my-3">
-          <h3>Brakes India Pvt Ltd</h3>
-          <h4 class="flex justify-between"><i>Intern</i> Jul '19 - Aug</h4>
-          <p class="my-1">
-            Interned in Product Development and Quality Assurance departments of
-            the company. Worked on re-engineering rubber and polymer mould
-            designs.
-          </p>
+        <div *ngFor="let exp of exp_data">
+          <div class="my-3">
+            <h3>{{ exp.company }}</h3>
+            <h4 class="flex justify-between">
+              <i>{{ exp.designation }}</i>
+              {{ exp.period }}
+            </h4>
+            <p class="my-1">
+              {{ exp.description }}
+            </p>
+          </div>
         </div>
       </div>
       <div
+        @rightAnim
         class="flex flex-col justify-start md:justify-between text-justify col-span-3 md:col-span-1 text-header-text dark:text-dark-header-text"
       >
         <div class="hidden md:block">
@@ -117,7 +89,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-3">
+    <div @upAnim class="mt-3">
       <h2 class="uppercase my-3">Skills</h2>
       <div class="grid grid-cols-3">
         <div class="col-span-1">
